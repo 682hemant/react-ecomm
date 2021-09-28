@@ -1,15 +1,31 @@
 import React from 'react';
 import img1 from '../assets/images/shop_carousel1.jpeg.jpeg';
 import { Img } from '../assets/styles/Img.styles';
+import CarouselIndicatorButton from './shared/CarouselIndicatorButton';
+import IndicatorSpan from './shared/IndicatorSpan';
 
 const Carousel = () => {
   return (
     <div>
-      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" style={{ paddingTop: 3.5 + "rem" }}>
         <div className="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <CarouselIndicatorButton
+            activeClass="active"
+            ariaCurrentSlide="true"
+            dataBsTarget="carouselExampleIndicators"
+            dataBsSlideTo="0"
+            ariaLabel="Slide 1"
+          />
+          <CarouselIndicatorButton
+            dataBsTarget="carouselExampleIndicators"
+            dataBsSlideTo="1"
+            ariaLabel="Slide 2"
+          />
+          <CarouselIndicatorButton
+            dataBsTarget="carouselExampleIndicators"
+            dataBsSlideTo="2"
+            ariaLabel="Slide 3"
+          />
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -22,14 +38,24 @@ const Carousel = () => {
             <Img src={img1} className="d-block w-100" alt="..." />
           </div>
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+        <CarouselIndicatorButton
+          activeClass="carousel-control-prev"
+          dataBsTarget="carouselExampleIndicators"
+          dataBsSlideTo="prev">
+          <IndicatorSpan activeClass="carousel-control-prev-icon" ariaHidden="true"/>
+          <IndicatorSpan activeClass="visually-hidden">Previous</IndicatorSpan>
+        </CarouselIndicatorButton>
+        <CarouselIndicatorButton
+          activeClass="carousel-control-next"
+          dataBsTarget="carouselExampleIndicators"
+          dataBsSlideTo="next">
+          <IndicatorSpan 
+          activeClass="carousel-control-next-icon" 
+          ariaHidden="true"/>
+          <IndicatorSpan 
+          activeClass="visually-hidden"
+          >Next</IndicatorSpan>
+        </CarouselIndicatorButton>
       </div>
     </div>
   )
