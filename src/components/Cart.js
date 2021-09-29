@@ -1,52 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { increaseItemQuantity } from '../redux/actions/product';
+// import { increaseItemQuantity } from '../redux/actions/product';
 import '../../src/App.css';
+import styled from 'styled-components';
+import {Button,Stack} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
-const Cart = ({ item, total, removeCartItem, dispatch }) => {
+import CartPriceDetail from './CartPriceDetail';
+import ItemDetail from './ItemDetail';
 
-  const [selected, changeSelected] = useState(1);
-  const { id, src, heading, text, rate } = item;
-  // useEffect(() => {
-  //   dispatch(increaseItemQuantity({id,selected}));
-  // },[selected])
 
+const Cart = ({ items, total, counter }) => {
   return (
     <>
-      <div className="col-lg-6 bg-white">
-        <hr />
-        <div className="d-flex mt-4 w-100">
-          <img src={src} alt="cart item" style={{ width: 12.5 + "rem" }} />
-          <div className="d-flex flex-column ms-5 w-100">
-            <div className="d-flex justify-content-between align-items-center w-100">
-              <h6 className="mb-0">{heading}</h6>
-              <select class="form-select w-0" value={selected} aria-label="Default select example" onChange={e => changeSelected(e.target.value)}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <button className="bg-white text-primary border-0" onClick={() => removeCartItem(id)}>Delete</button>
-            </div>
-            <p>{text}</p>
-            <span>Price:{rate}</span>
-          </div>
-        </div>
+      <div className="col-lg-6 col-12 bg-white p-4 rounded">
+        <h4>My cart ({counter})</h4>
+        {items.map(item => <ItemDetail item={item} /> 
+        )}
+        <Stack direction="horizontal" gap={3}>
+          <Button variant="warning ms-auto"><Link to="/viewcart" className="text-decoration-none text-black">Place order </Link></Button>
+        </Stack>
       </div>
-      <div className="col-lg-4 bg-white" style={{ marginLeft: "6.25rem" }}>
+      <PriceDetail className="col-lg-4 col-12 bg-white p-4 rounded mt-md-0 mt-4">
+        <h4>Price detail</h4>
         <table class="table">
-          <tbody>
-            <tr>
-              <td>{heading}</td>
-              <td>{rate}</td>
-            </tr>
-          </tbody>
+          {items.map(item => <tbody key={item.id}>
+            <CartPriceDetail item={item}/>
+          </tbody>)}
         </table>
-      </div>
-
+        <CartTotal>Cart total is {total}</CartTotal>
+      </PriceDetail>
     </>
   )
 }
 
 export default connect()(Cart)
+
+const PriceDetail = styled.div`
+    margin-left: 6.25rem;
+    @media (max-width: 768px) {
+    margin-left: 0;
+  }
+`
+const CartTotal = styled.h6`
+  @media (max-width: 768px) {
+      margin-left: 0;
+    }
+`

@@ -1,32 +1,20 @@
-import { Data } from '../../Data'
+
 
 const initialState = {
-  data: Data,
+  data: [],
   counter: 0,
   cart: [],
   total: 0,
+  saving: true,
+  isAdded : false,
 }
 
 const productReducer = (state = initialState, action) => {
   if (action.type === "ADDTOCART") {
-    let newCart = [];
-    state.data.map(item => {
-      if (item.id === action.payload.id) {
-        newCart = [...state.cart, item];
-        return newCart;
-      }
-    })
-    alert('Item added to the cart')
-    let newArr = [...new Set(newCart)]
-    let newTotal = 0
-    newArr.map(item => {
-      newTotal = state.total + item.rate
-    })
     return {
       ...state,
-      cart: newArr,
-      counter: newArr.length,
-      total: newTotal,
+      counter: state.counter + 1,
+      isAdded : true
     }
   }
   if (action.type === "DELETE_ITEM") {
@@ -59,8 +47,8 @@ const productReducer = (state = initialState, action) => {
           rate: item.rate * parseInt(action.payload.selected)
         }
       }
+      return item;
     })
-    console.log(newArr);
     let total = 0;
     for (let item of newArr) {
        total += item.rate
@@ -69,6 +57,27 @@ const productReducer = (state = initialState, action) => {
       ...state,
       cart: newArr,
       total: total
+    }
+  }
+  if(action.type === "GET_DATA"){
+    return {
+      ...state,
+      data:[ ...action.payload],
+      saving:false
+    }
+  }
+  if(action.type === 'GET_ITEMS'){
+    let cart = [...action.payload]
+    let cartItems = [...new Set(cart)]
+    let newTotal = 0;
+    for(let item of cartItems){
+      newTotal += item.rate
+    }
+    return {
+      ...state,
+      cart: cartItems,
+      counter: cartItems.length,
+      total:newTotal
     }
   }
   return state;

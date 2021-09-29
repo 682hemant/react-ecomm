@@ -1,11 +1,12 @@
-import Carousel from '../components/Carousel';
-
 import React from 'react'
+
+import CarouselSlide from '../components/Carousel';
+
 
  const CarouselContainer = () => {
   return (
     <div>
-      <Carousel />
+      <CarouselSlide />
     </div>
   )
 }
