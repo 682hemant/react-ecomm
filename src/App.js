@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import CartContainer from './containers/CartContainer';
 import ViewCart from './containers/ViewCart';
+import PaginationContainer from './containers/paginationContainer';
 
 
 function App() {
@@ -21,13 +22,17 @@ function App() {
       <Switch>
         <Route exact path="/">
           <CarouselContainer />
-          <ProductContainer />
+          <PaginationContainer />
         </Route>
         <Route exact path="/cart">
           <CartContainer />
         </Route>
         <Route exact path="/viewcart">
           <ViewCart />
+        </Route>
+        <Route exact path="/:pagenumber">
+          {/* <ProductContainer /> */}
+          <PaginationContainer />
         </Route>
       </Switch>
     </div>

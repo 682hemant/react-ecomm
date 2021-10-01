@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 import CounterStyled from '../assets/styles/CounterStyled.style'
-import { searchProduct } from '../redux/actions/product';
+import { searchProduct } from '../redux/actions/index';
 import ListItems from './shared/LIstItems';
 
 
@@ -19,7 +19,6 @@ const Navbar = ({ counter, dispatch }) => {
   }
 
   useEffect(() => {
-    console.log(inputField);
     dispatch(searchProduct(inputField));
   }, [inputField])
 
@@ -40,7 +39,7 @@ const Navbar = ({ counter, dispatch }) => {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">E-Cart</Link>
         <form className="d-flex position-relative" onSubmit={searchHandler}>
-          <input className="form-control me-2" value={inputField} type="search" placeholder="Search" aria-label="Search" onChange={e => setInputField(e.target.value)} />
+          <input className="form-control me-2" value={inputField} type="search" placeholder="Search" aria-label="Search" onChange={e => {setInputField(e.target.value) }} />
           <Button className="border-0 bg-white position-absolute" type="submit"><i class="las la-search"></i></Button>
         </form>
         <button className="navbar-toggler" onClick={togglerChangeHandler} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

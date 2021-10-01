@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 const Card = styled.div`
  background : #fff;
- box-shadow: 0 0.5rem 1rem rgb(0 87 255 / 10%);
  margin-top: 1rem;
+ transition: all 1s;
+ position: relative; 
+ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+ transform: scaleY();
  .card-inner {
    padding:1rem;
  }
@@ -19,6 +22,11 @@ const Card = styled.div`
    background-color:#d67929;
    border-radius: 0.25rem;
  }
+ 
+ &:hover {
+  transform: scaleY(1.01);
+  box-shadow: 0.625rem 1.25rem 2.5rem 0 rgba(0, 0, 0, 0.8);
+}
 `
 
 export default Card;

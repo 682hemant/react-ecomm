@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 
 import Cart from '../components/Cart';
 import ContainerWrapper from '../assets/styles/ContainerWrapper';
-import { addTooCart, getCartItems } from '../redux/actions/product'
+import { getCartItems } from '../redux/actions/index'
 
 const CartContainer = ({ cart, counter, total, dispatch }) => {
-  
-	useEffect(() => {
-		dispatch(getCartItems())
-	}, [])
+
+  useEffect(() => {
+    dispatch(getCartItems())
+  }, [])
+
   let messege = "";
   if (cart.length === 0) {
     messege = <h4 className="my-4"> Your cart is empty please add item to the cart</h4>;
@@ -26,6 +27,7 @@ const CartContainer = ({ cart, counter, total, dispatch }) => {
     </ContainerWrapper>
   )
 }
+
 const mapStateToProps = state => {
   return {
     cart: state.cart,

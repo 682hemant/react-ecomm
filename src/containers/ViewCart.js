@@ -6,6 +6,7 @@ import ContainerWrapper from '../assets/styles/ContainerWrapper'
 const ViewCart = () => {
   alert('Your item is placed')
   return (
+    // dummy component
     <ContainerWrapper>
       <Container>
         <Row>
