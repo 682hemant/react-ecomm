@@ -1,28 +1,52 @@
 
-.form-select {
-  display: block;
-    width: 4rem !important;
-    padding: .375rem 2.25rem .375rem .75rem;
-    -moz-padding-start: calc(0.75rem - 3px);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    /* background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e); */
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    background-size: 16px 12px;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    -webkit-appearance: none;
-    appearance: none;
+@font-face {
+  font-family: "Telus-Web-Reg";
+  src: url("./assets//fonts/Telus-font/Telus-Web-Reg.ttf");
 }
 
+.form-select {
+  width: 4rem !important;
+}
+body {
+  font-family: "Telus-Web-Reg" !important;
+  /* -webkit-font-smoothing: */
+}
 
+.accordian-header .accordian-button {
+  background-color: none !important;
+  padding: 0.5rem 1.25rem !important;
+}
+.alert {
+  position: fixed !important;
+  border-radius: 0.25rem !important;
+  top: 5rem !important;
+  right: 40% !important;
+  z-index: 23;
+}
+/* .accordion-button {
+  padding: 0.5rem 1rem !important;
+}
+.accordion-button::after {
+  margin-left: 2rem !important;
+  background-size: 1rem !important;
+} */
+.curser-pointer {
+  cursor: pointer;
+}
+.min-width-10 {
+  min-width: 10rem;
+}
+.css-b62m3t-container {
+  width: 20rem;
+}
+.accordion-header button {
+  display: flex;
+  justify-content: space-between;
+}
 
-
-
-
-
+.accordion-button:focus {
+  z-index: 3;
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none !important;
+}

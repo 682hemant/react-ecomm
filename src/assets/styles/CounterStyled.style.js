@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 const CounterStyled = styled.div`
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50%;
-  background-color: black;
-  color: white;
+  background-color: #fff;
+  color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0.6rem;
-  left: 1.20rem;
+  top: 0.4rem;
+  left: 1.8rem;
   position:absolute;
   font-size:0.60rem;
 `

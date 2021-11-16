@@ -1,13 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Alert } from "react-bootstrap";
+import "../../../src/App.css";
 
-function Alert({ messege }) {
-  const isAdded = useSelector(state => state.is)
+const AlertIndicator = ({ messege, setShow }) => {
   return (
-    <div className="position-fixed" style={{ top: "5rem", zIndex:20 }}>
-      <h1>{messege}</h1>
-    </div>
-  )
-}
-
-export default Alert;
+    <Alert className="alert" variant="success" onClose={setShow} dismissible>
+      {messege}
+    </Alert>
+  );
+};
+export default AlertIndicator;

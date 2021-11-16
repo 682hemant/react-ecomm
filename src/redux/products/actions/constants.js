@@ -1,0 +1,10 @@
+export const ADDTOCART = "ADDTOCART";
+export const SEARCH = "SEARCH";
+export const FILTER = "FILTER";
+export const GET_DATA = "GET_DATA";
+export const GET_ITEMS = "GET_ITEMS";
+export const DELETE_ITEM = "DELETE_ITEM";
+export const SORT_BY_PRICE = "SORT_BY_PRICE";
+export const SORT_BY_PRICE_RANGE = "SORT_BY_PRICE_RANGE";
+export const FILTER_BY_RANGE = "FILTER_BY_RANGE";
+export const FILTERS_BY_BRANDS = "FILTERS_BY_BRANDS";
